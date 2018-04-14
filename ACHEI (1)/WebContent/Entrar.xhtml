@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="Menu.xhtml">
+
+	<ui:define name="conteudo">
+
+		<div class="container">
+			<div class="row">
+				<br /> <br /> <br />
+
+				<div class="col s12 m12">
+					<h3 class="light center">Acesse seu perfil</h3>
+				</div>
+
+
+				<h:form>
+					<div class="col s12 m6 offset-m3">
+
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mail</i>
+							<h:inputText x:placeholder="Digite seu e-mail" validatorMessage="E-mail inválido"
+								requiredMessage="Usuário ou senha inválidos" required="true"
+								styleClass="center" value="#{loginController.loginInformado}">
+								<f:validateLength minimum="8"></f:validateLength>
+							</h:inputText>
+						</div>
+						
+						<div class="input-field col s12">
+							<i class="material-icons prefix">create</i>
+							<h:inputSecret x:placeholder="Digite sua senha" validatorMessage="Senha inválida"
+								requiredMessage="Usuário ou senha inválidos" required="true"
+								styleClass="center" value="#{loginController.senhaInformada}">
+								<f:validateLength minimum="8"></f:validateLength>
+							</h:inputSecret>
+						</div>
+						
+						<div class="row center">
+							<h:commandButton value="Entrar"
+								action="#{loginController.autenticar}"
+								class="btn-large red darken-1 col m12 s12">
+							</h:commandButton>
+						</div>
+
+						<a class="col s12 center-align" href="EsqueceuSenha.xhtml">Esqueceu sua senha?</a>
+
+					</div>
+				</h:form>
+
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+</html>

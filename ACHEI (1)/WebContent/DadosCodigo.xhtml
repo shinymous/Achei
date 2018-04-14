@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="Menu.xhtml">
+
+	<ui:define name="conteudo">
+
+		<div class="container">
+		
+			<div class="row">
+				
+				<h4 class="light center ">Obrigado por ajudar</h4>
+				<h6 class="light center">Abaixo você encontra as informações do dono do objeto. Entre em contato para que a devolução ocorra da forma mais rápida possível.</h6>
+				<br/>
+				<br/>
+				<div class="col m12 s12">
+					
+					<div class="col m2 s12">
+					<br/>
+						<img class="responsive-img z-depth-4 materialboxed" src="#{request.contextPath}/img/foto/#{controladorCodigo.cliente.caminhoImg}" />
+					</div>
+					
+					<div class="col m10 s12 dados-codigo">
+					
+						<div class="col s12 m6">
+						
+						<!-- DADOS DO USUARIO -->
+						
+							<div class="col s12 m12">
+							<br/>
+								<h5 class=" left">Usuário</h5>	
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Nome</h6>
+								<h:outputText value="#{controladorCodigo.cliente.nomeCliente} #{controladorCodigo.cliente.sobrenomeCliente}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">E-mail</h6>
+								<h:outputText value="#{controladorCodigo.cliente.emailCliente}" class="light left col s9 m9"></h:outputText>	
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Telefones</h6>
+								<h:outputText value="#{controladorCodigo.cliente.contato.telefone1}" class="light left col m9 s9"></h:outputText>	
+							</div>
+							
+							<div class="col s12 m12">	
+								<h6 class="left col m3 s3"></h6>
+								<h:outputText value="#{controladorCodigo.cliente.contato.telefone2}" class="light left col m9 s9"></h:outputText>	
+							</div>
+							
+							<div class="col s12 m12">	
+								<h6 class="left col m3 s3"></h6>
+								<h:outputText value="#{controladorCodigo.cliente.contato.telefone3}" class="light left col m9 s9"></h:outputText>	
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3"></h6>
+								<h:outputText value="#{controladorCodigo.cliente.contato.telefone4}" class="light left col m9 s9"></h:outputText>	
+							</div>
+							
+						</div>
+						
+						
+						<!-- DADOS DO ENDERECO -->
+						<div class="col s12 m6">
+							<div class="col s12 m12">
+							<br/>
+								<h5 class=" left">Endereço</h5>	
+							</div>
+					
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Rua</h6>
+								<h:outputText value="#{controladorCodigo.cliente.endereco.ruaEndereco}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Nº</h6>
+								<h:outputText value="#{controladorCodigo.cliente.endereco.numeroEndereco}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Bairro</h6>
+								<h:outputText value="#{controladorCodigo.cliente.endereco.bairroEndereoc}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Cidade</h6>
+								<h:outputText value="#{controladorCodigo.cliente.endereco.cidadeEndereco}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Estado</h6>
+								<h:outputText value="#{controladorCodigo.cliente.endereco.estadoEndereco}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">CEP</h6>
+								<h:outputText value="#{controladorCodigo.cliente.endereco.cepEndereco}" class="light left col s9 m9" ></h:outputText>
+							</div>
+																		
+																			
+						</div>
+						
+						<div class="col s12 m12">
+							<br/>
+							<br/>
+						</div>
+						<hr/>
+						
+						<!-- DADOS DO OBJETO -->
+						<div class="col s12 m6">
+						
+							<div class="col s12 m12">
+							<br/>
+								<h5 class=" left">Objeto</h5>	
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Tipo</h6>
+								<h:outputText value="#{controladorCodigo.objeto.tipoObjeto}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Informações</h6>
+								<h:outputText value="#{controladorCodigo.objeto.informacaoObjeto}" class="light left col s9 m9" ></h:outputText>
+							</div>
+							
+							<div class="col s12 m12">
+								<h6 class="left col m3 s3">Mensagem do dono</h6>
+								<h:outputText value="#{controladorCodigo.objeto.mensagemObjeto}" class="light left col s9 m9" ></h:outputText>
+							</div>
+												
+						</div>
+						
+						<!-- FORMULARIO -->
+						<div class="col s12 m6">
+							
+						
+							<div class="col s12 m12">
+								<h5 class=" ">Mande uma mensagem</h5>	
+							</div>
+						
+							<br/>
+							<br/>
+							
+							<h:form onkeypress="return event.keyCode != 13">
+							
+								<h:inputHidden value="#{controladorCodigo.notificacao.idNotificacao}"></h:inputHidden>
+								<h:inputHidden value="#{controladorCodigo.cliente.idCliente}"></h:inputHidden>
+							
+								<div class="input-field">
+									<label for="nome">Seu nome</label>
+									<h:inputText id="nome" value="#{controladorCodigo.notificacao.nomeMensagem}" class="center" />
+								</div>
+							
+								<div class="input-field">
+									<label for="assunto">Assunto</label>
+									<h:inputText id="assunto" value="#{controladorCodigo.notificacao.assuntoMensagem}" class="center" />
+								</div>
+							
+								<div class="input-field">
+									<label for="msg">Mensagem</label>
+									<h:inputTextarea id="msg" value="#{controladorCodigo.notificacao.mensagem}" class="center" />
+									
+								</div>
+							
+								<div class="col s12 m12">
+									<h:commandButton styleClass="btn red darken-1 center" value="Finalizar" action="#{controladorCodigo.mandaMensagem}" ></h:commandButton>
+								</div>
+							</h:form>
+							
+							<div class="col s12 m12">
+								<br/>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+					
+				</div>
+					
+			</div>
+		
+		</div>
+	
+	</ui:define>
+
+</ui:composition>
+
+</html>

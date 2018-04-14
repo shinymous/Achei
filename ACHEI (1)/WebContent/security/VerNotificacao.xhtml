@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="../Menu.xhtml">
+
+	<ui:define name="conteudo">
+		<br />
+		<br />
+		<br />
+		<div class="container ">
+
+			<div class="row center">
+
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="VOLTAR"
+							action="#{controladorCliente.voltar()}"
+							styleClass="left btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+
+				<div class="col m4 s4">
+					<h4 class="center light">Notificações</h4>
+				</div>
+
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="Sair" action="#{loginController.sair()}"
+							styleClass="right btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+
+			</div>
+
+			<div class="row center">
+				<div class="col s12">
+					<h6 class="light center texto-sobre">Sempre que alguém achar
+						seu objeto uma nova notificação aparecerá para você, mostrando
+						qual objeto foi encontrado e a posível localização do mesmo. Caso
+						a pessoa que encontrar seu objeto queira mandar uma mensagem a
+						mesma também aparecerá aqui</h6>
+					<div class="col m4 s12">
+						<br /> <img class="responsive-img z-depth-4" src="#{request.contextPath}/img/foto/#{loginController.cliente.caminhoImg}" />
+						<h5 class="light">
+							<h:outputText value="#{loginController.cliente.nomeCliente}">
+							</h:outputText>
+							<h:outputText
+								value=" #{loginController.cliente.sobrenomeCliente}"></h:outputText>
+						</h5>
+					</div>
+					<br />
+					<div class="col m8 s12">
+						<h:dataTable value="#{loginController.cliente.listaNotificacao}"
+							var="notificacao">
+							<h:column>
+								<f:facet name="header">Objeto</f:facet>
+								<h:outputText value="#{notificacao.objeto.tipoObjeto}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Data</f:facet>
+								<h:outputText value="#{notificacao.data}">
+									<f:convertDateTime pattern="dd/MM/yyyy"/>
+								</h:outputText>
+							</h:column>
+							
+							<h:column>
+								<h:form>
+									<h:commandButton rendered="#{notificacao.situacao == 0}" value="Novo" styleClass="btn red darken-1 right" action="#{controladorCliente.verNotificacao}">
+										<f:setPropertyActionListener value="#{notificacao}" target="#{controladorCliente.notificacao}"></f:setPropertyActionListener>
+									</h:commandButton>
+									
+									<h:commandButton rendered="#{notificacao.situacao == 1}" value="Ver" styleClass="btn red darken-4 right" action="#{controladorCliente.verNotificacao}">
+										<f:setPropertyActionListener value="#{notificacao}" target="#{controladorCliente.notificacao}"></f:setPropertyActionListener>
+									</h:commandButton>		
+								</h:form>
+							</h:column>
+							
+							<h:column>
+								<h:form>
+								<a class="modal-trigger btn red darken-1" href="#modal-deletar" >Deletar</a>
+									
+								<div id="modal-deletar" class="modal">
+									<div class="modal-content">
+										<h4 class="light center">Deseja realmente deletar a notificação?</h4>
+										<br/>
+										<div class="row">
+											<div class="col s6 m6">
+												<h:commandButton value="SIM"  action="#{controladorCliente.deletaNotificacao}" styleClass="btn red darken-1 col s9 m9">
+													<f:setPropertyActionListener value="#{notificacao}" target="#{controladorCliente.notificacao}"></f:setPropertyActionListener>
+												</h:commandButton>
+											</div>
+											
+											
+											<div class="col s6 m6">
+												<h:commandButton value="NÃO"  action="#{controladorCliente.listarNotificacao}" styleClass="btn red darken-1 right col s9 m9">
+													<f:setPropertyActionListener value="#{notificacao}" target="#{controladorCliente.notificacao}"></f:setPropertyActionListener>
+												</h:commandButton>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+											
+								</h:form>
+							</h:column>
+							
+						</h:dataTable>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+		
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="../Menu.xhtml">
+
+	<ui:define name="conteudo">
+
+
+		<br />
+		<br />
+		<br />
+		<div class="container ">
+
+				<div class="row center">
+			
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="VOLTAR" action="#{controladorCliente.voltar()}" styleClass="left btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+				<div class="col m4 s4">
+					<h4 class="center light">Códigos</h4>
+				</div>
+				
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="Sair" action="#{loginController.sair()}" styleClass="right btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+			</div>
+
+			<div class="row center">
+				<div class="col s12">
+					<h6 class="light center texto-sobre">Todos seus códigos são mostrados abaixo, juntamente com a opção de associar um objeto a cada um deles.
+					Lembre-se de deixar seu código sempre junto do objeto associado.</h6>
+					<div class="col m4 s12">
+						<br /> <img class="responsive-img z-depth-4" src="#{request.contextPath}/img/foto/#{loginController.cliente.caminhoImg}" />
+						<h5 class="light"><h:outputText value="#{loginController.cliente.nomeCliente}"> </h:outputText><h:outputText value=" #{loginController.cliente.sobrenomeCliente}"></h:outputText></h5>
+					</div>
+					<br />
+					<div class="col m8 s12">
+						<h:dataTable value="#{loginController.cliente.listaCodigos}" var="codigo">
+							<h:column>
+								<f:facet name="header">Código</f:facet>
+								<h:outputText value="#{codigo.idCodigo}#{codigo.codigo}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Objeto</f:facet>
+								<h:outputText value="#{codigo.objeto.tipoObjeto}" />
+							</h:column>
+							<h:column>
+								<h:form>
+									<h:commandButton value="Editar" styleClass="btn red darken-1 right" action="#{controladorObjeto.EditarObjeto}">
+										<f:setPropertyActionListener value="#{codigo.objeto}" target="#{controladorObjeto.objeto}"></f:setPropertyActionListener>
+									</h:commandButton>
+								</h:form>
+							</h:column>
+							<h:column>
+								<h:form>
+									<h:commandLink action="#{controladorObjeto.imprimir}" value="Imprimir" styleClass="btn red darken-1" target="_blank">
+										<f:setPropertyActionListener value="#{codigo}" target="#{controladorObjeto.codigo}"></f:setPropertyActionListener>
+									</h:commandLink>
+								</h:form>
+							</h:column>
+						</h:dataTable>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<br/>
+	</ui:define>
+
+</ui:composition>
+
+</html>

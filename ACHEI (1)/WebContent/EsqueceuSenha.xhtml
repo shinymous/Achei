@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="Menu.xhtml">
+
+	<ui:define name="conteudo">
+
+		<div class="container">
+			<div class="row">
+				<br /> <br /> <br />
+
+				<div class="col s12 m12">
+					<h3 class="light center">Esqueceu sua senha?</h3>
+				</div>
+
+
+				<h:form>
+					<div class="col s12 m6 offset-m3">
+					
+						<div class="col s12">
+							<br/>
+							<h6 class="light center">Digite o e-mail cadastrado em sua conta que lhe enviaremos uma nova senha</h6>
+							<br/>
+						</div>
+
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mail</i>
+							<h:inputText x:placeholder="Digite seu e-mail" validatorMessage="E-mail inválido"
+								requiredMessage="Usuário ou senha inválidos" required="true"
+								styleClass="center" value="#{controladorCliente.emialAtual}">
+								<f:validateLength minimum="8"></f:validateLength>
+							</h:inputText>
+						</div>
+						
+						
+						<div class="row center">
+							<h:commandButton value="Recuperar Senha"
+								action="#{controladorCliente.recuperarSenha}"
+								class="btn-large red darken-1 col m12 s12">
+							</h:commandButton>
+						</div>
+
+					</div>
+				</h:form>
+
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="../Menu.xhtml">
+
+	<ui:define name="conteudo">
+		<br />
+		<br />
+		<br />
+		<div class="container ">
+
+				<div class="row center">
+			
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="VOLTAR" action="#{controladorCliente.voltar()}" styleClass="left btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+				<div class="col m4 s4">
+					<h4 class="center light">Perfil</h4>
+				</div>
+				
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="Sair" action="#{loginController.sair()}" styleClass="right btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+			</div>
+			
+			<div class="row center">
+				<div class="col s12">
+							 <h6 class="light center texto-sobre">
+								Preencha os campos abaixo o mais completo possível para que a devolução de seu objeto seja feita de forma fácil.
+								Os dados preenchidos abaixo serão mostrados para a pessoa que achar seu objeto.
+							</h6>
+					<div class="col m4 s12">
+						<br /> 
+						<img class="responsive-img z-depth-4" src="#{request.contextPath}/img/foto/#{controladorCliente.cliente.caminhoImg}" />
+					
+						<h:form enctype="multipart/form-data">
+						
+							<div class="col m6 s6">
+								<a class="modal-trigger" href="#modal3"><h:commandButton  styleClass="btn_perfil center" value="Alterar foto"></h:commandButton></a>
+							</div>
+					
+							<div class="col m6 s6">
+								<a class="modal-trigger" href="#modal2"><h:commandButton  styleClass="btn_perfil center" value="E-mail e senha"></h:commandButton></a>
+							</div>
+						
+						</h:form>
+						
+						<h5 class="light"><h:outputText value="#{controladorCliente.cliente.nomeCliente}"> </h:outputText><h:outputText value=" #{controladorCliente.cliente.sobrenomeCliente}"></h:outputText></h5>
+					</div>
+					<br/>
+					<div class="col m8 s12">
+						<ul id="tabs-swipe" class="tabs">
+							<li class="tab col m4 s4 grey lighten-1 light"><a href="#swipe-dados-pessoais">Dados Pessoais</a></li>
+							<li class="tab col m4 s4 grey lighten-1 light"><a href="#swipe-endereco">Endereço</a></li>
+							<li class="tab col m4 s4 grey lighten-1 light"><a href="#swipe-contatos">Contatos</a></li>
+						</ul>
+						
+						<div id="swipe-dados-pessoais" class="col s12">
+							<br/>
+							
+							
+							<h:form>
+								<div class="col m12 s12">
+								
+									<h:inputHidden value="#{controladorCliente.cliente.idCliente}"></h:inputHidden>
+								
+									<div class="input-field">
+										<label for="nome">Nome</label>
+										<h:inputText id="nome" value="#{controladorCliente.cliente.nomeCliente}" required="true" validatorMessage="Digite um nome" requiredMessage="Digite um nome" class="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="sobrenome">Sobrenome</label>
+										<h:inputText id="sobrenome" value="#{controladorCliente.cliente.sobrenomeCliente}" required="true" validatorMessage="Digite um sobrenome" requiredMessage="Digite um sobrenome" class="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="dataCliente">Data Nascimento</label>
+										<p:inputMask id="dataCliente" value="#{controladorCliente.cliente.dataNascimenteCliente}" mask="99/99/9999" required="true" requiredMessage="Digite uma data" validatorMessage="Digite uma data" converterMessage="Digite uma data válida" class="center">
+											<f:convertDateTime pattern="dd/MM/yyyy" />
+										</p:inputMask>
+									</div>
+									
+								</div>
+								<h:commandButton value="Salvar"  action="#{controladorCliente.alteraCliente}" styleClass="btn red darken-1"></h:commandButton>
+							</h:form>
+						</div>
+						
+						<div id="swipe-endereco" class="col s12">
+						<br/>
+							<h:form>
+								
+								<div class="col m12 s12">
+									
+									<h:inputHidden value="#{controladorCliente.endereco.idEndereco}"></h:inputHidden>
+									
+									<div class="input-field">
+										<label for="rua">Rua</label>
+										<h:inputText id="rua" value="#{controladorCliente.endereco.ruaEndereco}" styleClass="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="numero">Número</label>
+										<p:inputMask id="numero" value="#{controladorCliente.endereco.numeroEndereco}" mask="9?9999" styleClass="center"/>
+									</div>
+									
+									<div class="input-field">
+										<label for="complemento">Complemento</label>
+										<h:inputText id="complemento" value="#{controladorCliente.endereco.complementoEndereco}" styleClass="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="bairro">Bairro</label>
+										<h:inputText id="bairro" value="#{controladorCliente.endereco.bairroEndereoc}" styleClass="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="cidade">Cidade</label>
+										<h:inputText id="cidade" value="#{controladorCliente.endereco.cidadeEndereco}" styleClass="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="estado">Estado</label>
+										<h:inputText id="estado" value="#{controladorCliente.endereco.estadoEndereco}" styleClass="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="cep">CEP</label>
+										<p:inputMask id="cep" value="#{controladorCliente.endereco.cepEndereco}" mask="99999-999" styleClass="center"/>
+									</div>
+									
+								</div>
+								<h:commandButton value="Salvar" styleClass="btn red darken-1" action="#{controladorCliente.alterarEndereco()}"></h:commandButton>
+							</h:form>
+						</div>
+						
+						<div id="swipe-contatos" class="col s12">
+						<br/>
+							<h:form>
+								<br/>
+							
+								<div class="col m12 s12">
+								
+									<h:inputHidden value="#{controladorCliente.contato.idContato}"></h:inputHidden>
+								
+									<div class="input-field">
+										<label for="tel1">Telefone 1</label>
+										<p:inputMask id="tel1" value="#{controladorCliente.contato.telefone1}" mask="(99) 9-9999-999?9" class="center" />
+									</div>
+									
+									<div class="input-field">
+										<label for="tel2">Telefone 2</label>
+										<p:inputMask id="tel2" value="#{controladorCliente.contato.telefone2}" mask="(99) 9-9999-999?9" class="center" />
+									</div>
+									
+									<div class="input-field">
+										<label for="tel3">Telefone 3</label>
+										<p:inputMask id="tel3" value="#{controladorCliente.contato.telefone3}" mask="(99) 9-9999-999?9" class="center" />
+									</div>
+									
+									<div class="input-field">
+										<label for="tel4">Telefone 4</label>
+										<p:inputMask id="tel4" value="#{controladorCliente.contato.telefone4}" mask="(99) 9-9999-999?9" class="center" />
+									</div>
+									
+								</div>
+								<h:commandButton value="Salvar" styleClass="btn red darken-1" action="#{controladorCliente.alterarContato()}"></h:commandButton>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+		
+		
+		<!-- Modal1 Structure -->
+	<div class ="row">
+		<div id="modal2" class="modal">
+			<div class="modal-content">
+				<h5 class="center light">Utilize as opções abaixo para efetuar alteracões no e-mail e senha de sua conta.</h5>
+				<br/>
+		
+				<div class="col m12 s12">
+					<ul id="tabs-swipe2" class="tabs">
+						<li class="tab col m6 s6 grey lighten-1 light"><a href="#swipe-email">E-mail</a></li>
+						<li class="tab col m6 s6 grey lighten-1 light"><a href="#swipe-senha">Senha</a></li>
+					</ul>
+						
+					<div id="swipe-email" class="col s12">
+						<br/>
+								
+						<h:form>
+							<div class="col m12 s12">
+								<h6 class="center light">Alteração de e-mail</h6>
+								<br/>
+							
+								<div class="input-field">
+									<label for="email_atual">E-mail atual</label>
+									<h:inputText id="email_atual" validatorMessage="E-mail atual inválido" requiredMessage="E-mail atual inválido" autocomplete="false" value="#{controladorCliente.emialAtual}" class="center">
+										
+									</h:inputText>
+								</div>
+									
+								<div class="input-field">
+									<label for="novo_email">Novo e-mail</label>
+									<h:inputText id="novo_email" validatorMessage="Novo e-mail inválido" requiredMessage="Novo e-mail inválido"  autocomplete="false" value="#{controladorCliente.novoEmail}" class="center">
+										
+									</h:inputText>
+								</div>
+									
+								<div class="input-field">
+									<label for="confirme_novo_email">Confirme o novo e-mail</label>
+									<h:inputText id="confirme_novo_email" validatorMessage="Confirmação de e-mail inválido" requiredMessage="Confirmação de e-mail inválido"  autocomplete="false" value="#{controladorCliente.confirmaNovoEmail}" class="center">
+										
+									</h:inputText>
+								</div>		
+							</div>
+						
+							<div class="col s12 m12 center">
+								<h:commandButton value="Alterar"  action="#{controladorCliente.alteraEmail}" styleClass="btn red darken-1"></h:commandButton>
+							</div>
+							
+						</h:form>
+					</div>
+						
+					<div id="swipe-senha" class="col s12">
+					<br/>
+						<h:form>
+							<div class="col m12 s12">
+								<h6 class="center light">Alteração de senha</h6>
+								<br/>
+								
+								<div class="input-field">
+									<label for="senha_antiga">Senha atual</label>
+									<h:inputSecret id="senha_antiga" validatorMessage="Senha atual inválida" requiredMessage="Senha atual inválida" autocomplete="false" value="#{controladorCliente.senhaAtual}" class="center">
+			
+									</h:inputSecret>
+								</div>
+									
+								<div class="input-field">
+									<label for="nova_senha">Nova senha</label>
+									<h:inputSecret id="nova_senha" validatorMessage="Digite uma senha entre 8 e 10 caracteres" requiredMessage="Digite uma senha válida"  autocomplete="false" value="#{controladorCliente.novaSenha}" class="center">
+										
+									</h:inputSecret>
+								</div>
+									
+								<div class="input-field">
+									<label for="confirme_nova_senha">Confirme a nova senha</label>
+									<h:inputSecret id="confirme_nova_senha" validatorMessage="Digite uma senha entre 8 e 10 caracteres" requiredMessage="Digite uma senha válida" autocomplete="false" value="#{controladorCliente.confirmaNovaSenha}" class="center">
+									
+									</h:inputSecret>
+								</div>	
+							</div>
+						
+							<div class="col s12 m12 center">
+								<h:commandButton value="Alterar" styleClass="btn red darken-1" action="#{controladorCliente.alteraSenha}"></h:commandButton>
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col s12">
+						<h:form>
+							<h:commandButton type="submit" styleClass="btn_mini left" value="Fechar" action="#{controladorCliente.editaPerfil}">
+							</h:commandButton>
+						</h:form>
+					</div>
+					<div class="col s12 m12">
+						<br/>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class ="row">
+		<div id="modal3" class="modal">
+			<div class="modal-content">
+				<h5 class="center light">Editar Foto.</h5>
+				<br/>
+				<h6 class="center light">Importante, o arquivo deve conter no máximo <b>2mb</b> e deve estar nos formatos <b>png, jpg ou jpeg.</b></h6>
+				<br/>
+				<h:form id="form" enctype="multipart/form-data">
+				
+					<div class="col s12 m12 center">
+				
+       					<h:inputFile id="arquivo" value="#{controladorCliente.arquivo}" />
+       					<br/>
+       					<br/>
+  						<h:commandButton  value="Alterar" action="#{controladorCliente.uploadArquivo}" />
+ 						
+					</div>
+		
+    			</h:form>
+    				
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col s12">
+						<h:form>
+							<h:commandButton type="submit" styleClass="btn_mini left" value="Fechar" action="#{controladorCliente.editaPerfil}">
+							</h:commandButton>
+						</h:form>
+					</div>
+					<div class="col s12 m12">
+						<br/>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	</ui:define>
+
+</ui:composition>
+
+</html>

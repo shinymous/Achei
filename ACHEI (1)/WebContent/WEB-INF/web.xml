@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>ACHEI</display-name>
+	<welcome-file-list>
+		<welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
+
+	<!-- Configuração do Controlador Faces Servlet -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>FiltroLogin</filter-name>
+		<filter-class>util.FiltroLogin</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FiltroLogin</filter-name>
+		<url-pattern>/security/*</url-pattern>
+	</filter-mapping>
+  
+  
+  <session-config>
+  	<session-timeout>10</session-timeout>
+  </session-config>
+  
+  <context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+  </context-param>
+
+
+</web-app>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+	<title>Achei</title>
+
+	<!-- CSS  -->
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link href="#{request.contextPath}/css/print.css" rel="stylesheet" media="print, screen" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet" media="screen, print" />
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/materialize.min.css"
+		media="screen,projection,print" />
+	
+</h:head>
+
+<h:body>
+	
+	<page size="A4">
+	<p>www.codigoachei.online</p>
+	
+	<!-- 1 ADESIVO -->
+	
+	<div class="row">
+		<div class="col m12 s12 borda">
+			<div class="col m6 s6">
+				<h5 class="light center">Achou o objeto?</h5>
+				<h4 class="light center red-text text-darken-1"><b>www.codigoachei.online</b></h4>
+				<h5 class="light center">E digite o código abaixo</h5>
+				<h4 class="light center red-text text-darken-1"><b><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></b></h4>
+			</div>
+			<div class="col m6 s6 center">
+				<i class="material-icons center small">camera_alt</i><br/>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="150px" />
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- 3 ADESIVO -->
+	<div class="row">
+		<div class="col m4 s4 borda">
+			<h6 class="light">Achou? <b><span class="red-text text-darken-1">www.codigoachei.online</span></b></h6>
+			<h6 class="light ">Código:  <b><span class="red-text text-darken-1"><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></span></b></h6>
+			
+			<div class="col s12 m12 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="80px" />
+			</div>
+		</div>
+	
+		<div class="col m4 s4 borda">
+			<h6 class="light">Achou? <b><span class="red-text text-darken-1">www.codigoachei.online</span></b></h6>
+			<h6 class="light ">Código:  <b><span class="red-text text-darken-1"><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></span></b></h6>
+			
+			<div class="col s12 m12 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="80px" />
+			</div>
+		</div>
+		
+		<div class="col m4 s4 borda">
+			<h6 class="light">Achou? <b><span class="red-text text-darken-1">www.codigoachei.online</span></b></h6>
+			<h6 class="light ">Código:  <b><span class="red-text text-darken-1"><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></span></b></h6>
+			
+			<div class="col s12 m12 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="80px" />
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="row">
+		<div class="col s3 m3 borda">
+			<b><span class="red-text text-darken-1">www.codigoachei.online</span></b>
+			<h6 class="light ">Código:<b><span class="red-text text-darken-1"><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></span></b></h6>
+			<div class="col s12 m12 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="70px" />
+			</div>
+		</div>
+		
+		<div class="col s3 m3 borda">
+			<b><span class="red-text text-darken-1">www.codigoachei.online</span></b>
+			<h6 class="light ">Código:<b><span class="red-text text-darken-1"><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></span></b></h6>
+			<div class="col s12 m12 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="70px" />
+			</div>	
+		</div>
+		
+		<div class="col s3 m3 borda">
+			<b><span class="red-text text-darken-1">www.codigoachei.online</span></b>
+			<h6 class="light ">Código:<b><span class="red-text text-darken-1"><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></span></b></h6>
+			<div class="col s12 m12 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="70px" />
+			</div>
+		</div>
+		
+		<div class="col s3 m3 borda">
+			<b><span class="red-text text-darken-1">www.codigoachei.online</span></b>
+			<h6 class="light ">Código:<b><span class="red-text text-darken-1"><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></span></b></h6>
+			<div class="col s12 m12 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="70px" />
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<!-- 4 ADESIVO -->
+	<div class="row">
+		<div class="col l6 m6 s6 borda">
+			<div class="col m6 s6">
+				<h6 class="light ">Achou o objeto?</h6>
+				<h6 class=" red-text text-darken-1"><b>www.codigoachei.online</b></h6>
+				<h6 class="light ">E digite o código</h6>
+				<h6 class="light  red-text text-darken-1"><b><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></b></h6>
+			</div>
+
+			<div class="col m6 s6 center valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="100px" class="right" />
+			</div>
+		</div>
+		
+		<div class="col l6 m6 s6 borda">
+			<div class="col m6 s6">
+				<h6 class="light ">Achou o objeto?</h6>
+				<h6 class=" red-text text-darken-1"><b>www.codigoachei.online</b></h6>
+				<h6 class="light ">E digite o código</h6>
+				<h6 class="light  red-text text-darken-1"><b><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></b></h6>
+			</div>
+			<div class="col m6 s6 valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="100px" class="right" />
+			</div>
+		</div>
+	</div>	
+	
+	<div class="row">
+		<div class="col l6 m6 s6 borda">
+			<div class="col m6 s6">
+				<h6 class="light ">Achou o objeto?</h6>
+				<h6 class=" red-text text-darken-1"><b>www.codigoachei.online</b></h6>
+				<h6 class="light ">E digite o código</h6>
+				<h6 class="light  red-text text-darken-1"><b><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></b></h6>
+			</div>
+			<div class="col m6 s6 center valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="100px" class="right" />
+			</div>
+		</div>
+		
+		<div class="col l6 m6 s6 borda">
+			<div class="col m6 s6">
+				<h6 class="light ">Achou o objeto?</h6>
+				<h6 class=" red-text text-darken-1"><b>www.codigoachei.online</b></h6>
+				<h6 class="light ">E digite o código</h6>
+				<h6 class="light  red-text text-darken-1"><b><h:outputText value="#{controladorObjeto.codigoString}" > </h:outputText></b></h6>
+			</div>
+			<div class="col m6 s6 center valign-wrapper">
+				<i class="material-icons small">camera_alt</i>
+				<img src="../img/qrs/#{controladorObjeto.codigoString}.png" width="100px" class="right" />
+			</div>
+		</div>
+	</div>	
+	
+	
+	
+	</page>
+
+</h:body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="../Menu.xhtml">
+
+	<ui:define name="conteudo">
+		<br />
+		<br />
+		<br />
+		<div class="container ">
+
+			<div class="row center">
+
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="VOLTAR"
+							action="#{controladorCliente.voltar()}"
+							styleClass="left btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+
+				<div class="col m4 s4">
+					<h4 class="center light">Notificação</h4>
+				</div>
+
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="Sair" action="#{loginController.sair()}"
+							styleClass="right btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+
+			</div>
+
+			<div class="row center">
+				<div class="col s12">
+					<h6 class="light center texto-sobre"></h6>
+					<div class="col m4 s12">
+						<br /> <img class="responsive-img z-depth-4" src="#{request.contextPath}/img/foto/#{loginController.cliente.caminhoImg}" />
+						<h5 class="light">
+							<h:outputText value="#{loginController.cliente.nomeCliente}">
+							</h:outputText>
+							<h:outputText
+								value=" #{loginController.cliente.sobrenomeCliente}"></h:outputText>
+						</h5>
+					</div>
+					<br />
+					<div class="col m8 s12 z-depth-1">
+						
+						<div class="col s12 m12">
+							<h6 class="left col m6 s6">Data da notificação: </h6>
+							<h6><h:outputText value="#{controladorCliente.notificacao.data}" class="light left col s6 m6" >
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputText></h6>
+						</div>
+						
+						<div class="col s12 m12">
+							<h6 class="left col m6 s6">Objeto encontrado: </h6>
+							<h6><h:outputText value="#{controladorCliente.notificacao.objeto.tipoObjeto}" class="light left col s6 m6" >
+							</h:outputText></h6>
+						</div>
+						
+						
+						<div class="col s12 m12">
+							<h6 class="left col m6 s6">Local: </h6>
+							<h6><a href= "https://www.google.com/maps/place/#{controladorCliente.notificacao.latitude},#{controladorCliente.notificacao.longitude}" target="_blank">
+								<h:outputText rendered="#{controladorCliente.notificacao.latitude != 0}" value="Ver Local" styleClass="light left col s6 m6" />
+								<h:outputText rendered="#{controladorCliente.notificacao.latitude == 0}" value="Usuário não compartilhou a localização " styleClass="light left col s6 m6" />
+							</a></h6>
+						</div>
+						
+						<div class="col s12 m12">
+							<br/>
+							<h5>Mensagem do usuário</h5>
+							<br/>
+						</div>
+						
+						<div class="col s12 m12">
+							<h6 class="left col m6 s6">Nome do usuário: </h6>
+							<h6><h:outputText value="#{controladorCliente.notificacao.nomeMensagem}" class="light left col s6 m6" /></h6>
+							<h6><h:outputText rendered="#{controladorCliente.notificacao.nomeMensagem == null}" value="Usuário não informou o nome" styleClass="light left col s6 m6" /></h6>
+						</div>
+						
+						<div class="col s12 m12">
+							<h6 class="left col m6 s6">Assuto: </h6>
+							<h6><h:outputText value="#{controladorCliente.notificacao.assuntoMensagem}" class="light left col s6 m6" /></h6>
+							<h6><h:outputText rendered="#{controladorCliente.notificacao.assuntoMensagem == null}" value="Usuário não informou o assunto" styleClass="light left col s6 m6" /></h6>
+						</div>
+						
+						<div class="col s12 m12">
+							<h6 class="left col m6 s6">Mensagem: </h6>
+							<h6><h:outputText value="#{controladorCliente.notificacao.mensagem}" class="light left col s6 m6" /></h6>
+							<h6><h:outputText rendered="#{controladorCliente.notificacao.mensagem == null}" value="Usuário não enviou mensagem" styleClass="light left col s6 m6" /></h6>
+						</div>
+						
+					</div>
+					
+					<div class="col s12 m8">
+					<br/>
+					
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,138 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+ .icone_perfil{
+ 	border: solid 1px #ccc;
+ 	width: 100%;
+ 	margin-bottom: 15px;
+ 	margin-top: 15px;
+ }
+ 
+ul.tabs  li.tab  a{
+	background-color: #fff;
+	color:#000;
+	border-bottom:solid 1px #000;
+}
+ 
+ ul.tabs  li.tab  a:hover{
+ 	color:#fff;
+ }
+ 
+ ul.tabs  li.tab  a.active{
+ 	color:#000;
+ }
+ 
+
+ .barra{
+	overflow: auto; 
+ }
+.btn_perfil{
+ 	width: 100%;
+ 	height: 40px;
+	background-color: #aaa;
+	color: #fff;
+	font-size: 14px;
+	text-align:left;
+	border: 0px;
+	margin-top:10px;
+	-webkit-transition:background 0.5s ease-out;
+	-moz-transition:background 0.5s ease-out;
+	-o-transition:background 0.5s ease-out;
+	-ms-transition:background 0.5s ease-out;
+ } 
+ 
+  .btn_perfil:hover{
+ 	width: 100%;
+ 	height: 40px;
+	background-color: #e53935;
+	font-size: 14px;
+	text-align: left;
+ }
+ 
+  
+  .upload {
+  	width: 100%;
+ 	height: 40px;
+	font-size: 14px;
+	text-align:left;
+    padding: 2px;
+    border-radius: 2px;
+    background: #aaa;
+    cursor: pointer;
+    color:#fff;
+    margin-top:10px;
+}
+
+  .upload:hover {
+  	width: 100%;
+ 	height: 40px;
+	background: #e53935;
+	font-size: 14px;
+	text-align:left;
+    padding: 2px;
+    cursor: pointer;
+}
+
+
+input.upload {
+    display: none;
+}
+
+.dados-codigo{
+	border: solid 1px #ccc;
+	margin-bottom: 50px;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+   
+.btn-mini{
+	border:solid 1px #ddd;
+	background-color:#fff;
+	color:#555;
+	height: 30px;
+	border-radius: 5px;
+	font-size: 14px;
+	-webkit-transition:background 0.5s ease-out;
+	-moz-transition:background 0.5s ease-out;
+	-o-transition:background 0.5s ease-out;
+	-ms-transition:background 0.5s ease-out;
+   }
+   
+   .btn-mini:hover{
+	background-color:#ddd;
+	color:#333;
+	border:solid 1px #ddd;
+	height: 30px;
+	border-radius: 5px;
+	font-size: 14px;
+   }
+
+.texto-sobre{
+	line-height: 30px;
+}	
+   
+  
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 35px;
+	border-top:solid 1px #fff;
+	color:#555;
+  }
+  
+  .footer a{
+	color:#555;
+  }
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+	font-size: inherit;
+}

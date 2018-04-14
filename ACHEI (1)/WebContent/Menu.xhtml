@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+	
+	<meta property="og:url"           content="http://www.codigoachei.online" />
+  	<meta property="og:type"          content="Achei" />
+ 	<meta property="og:title"         content="Achei" />
+ 	<meta property="og:description"   content="Código achei." />
+  	<meta property="og:image"         content="http://2.bp.blogspot.com/-lg1T3y25hYQ/UA1XschP9mI/AAAAAAAAR1g/9tR6jGxmx_U/s1600/Captura-de-tela-2012-07-16-às-12.12.29.png" />
+  	
+	<title>Achei</title>
+
+	<!-- CSS  -->
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/materialize.min.css" media="screen,projection" />
+	
+	<!-- ICONS -->
+	<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/icon/favicon.ico" />
+
+	<link rel="apple-touch-icon" sizes="57x57" href="#{request.contextPath}/icon/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="#{request.contextPath}/icon/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="#{request.contextPath}/icon/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="#{request.contextPath}/icon/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="#{request.contextPath}/icon/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="#{request.contextPath}/icon/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="#{request.contextPath}/icon/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="#{request.contextPath}/icon/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="#{request.contextPath}/icon/apple-icon-180x180.png" />
+	<link rel="apple-touch-icon" href="#{request.contextPath}/icon/apple-icon.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="#{request.contextPath}/icon/android-icon-192x192.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="#{request.contextPath}/icon/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="96x96" href="#{request.contextPath}/icon/favicon-96x96.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="#{request.contextPath}/icon/favicon-16x16.png"/>
+	<link rel="manifest" href="#{request.contextPath}/icon/manifest.json" />
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="msapplication-TileImage" content="#{request.contextPath}/icon/ms-icon-144x144.png" />
+	<meta name="theme-color" content="#ffffff" />
+	<link rel="apple-touch-startup-image" href="#{request.contextPath}/icon/apple-icon-76x76.png" />
+
+</h:head>
+
+<h:body>
+
+	<!--  MENU -->
+	<header>
+		<div class="navbar-fixed">
+		<nav class="grey darken-1" role="navigation">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="#{request.contextPath}/inicio.xhtml" class="brand-logo">Achei <i class="material-icons red-text" style="font-size:50px; margin-right:-10px;">location_on</i></a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="#{request.contextPath}/inicio.xhtml">Início</a></li>
+					<li><a class="modal-trigger" href="#modal1">Cadastre-se</a></li>
+					<li><a href="#{request.contextPath}/Sobre.xhtml">Como funciona</a></li>
+					<li><a href="#{request.contextPath}/security/Perfil.xhtml"><h:outputText rendered="#{loginController.cliente.idCliente > 0}" value="Meu perfil"></h:outputText> </a></li>
+					<li><a href="#{request.contextPath}/security/Perfil.xhtml"><h:outputText rendered="#{loginController.cliente.idCliente == null}" value="Entrar"></h:outputText> </a></li>
+				</ul>
+
+				<ul id="nav-mobile" class="side-nav">
+					<li><a href="#{request.contextPath}/inicio.xhtml">Início</a></li>
+					<li><a class="modal-trigger" href="#modal1">Cadastre-se</a></li>
+					<li><a href="#{request.contextPath}/Sobre.xhtml">Como funciona</a></li>
+					<li><a href="#{request.contextPath}/security/Perfil.xhtml"><h:outputText rendered="#{loginController.cliente.idCliente > 0}" value="Meu perfil"></h:outputText> </a></li>
+					<li><a href="#{request.contextPath}/security/Perfil.xhtml"><h:outputText rendered="#{loginController.cliente.idCliente == null}" value="Entrar"></h:outputText> </a></li>
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i
+					class="material-icons">menu</i></a>
+			</div>
+		</nav>
+		</div>
+	</header>
+	<!--  /MENU -->
+
+	<!-- Modal1 Structure -->
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4 class="light center">Cadastre-se</h4>
+			<div class="row">
+				<h:form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">account_circle</i> 
+							<h:inputText id="icon_email" validatorMessage="Digite um e-mail válido" requiredMessage="Digite um e-mail váildo" required="true" autocomplete="false" value="#{controladorCliente.cliente.emailCliente}" >
+								<f:validateLength minimum="8"></f:validateLength>
+							</h:inputText>
+							<label for="icon_email" data-error="Digite um e-mail válido." data-success="OK.">Email</label>
+						</div>
+						
+						<div class="input-field col s12">
+							<i class="material-icons prefix">edit</i> 
+							<h:inputSecret id="icon_senha" validatorMessage="Digite uma senha entre 8 e 10 caracteres" requiredMessage="Digite uma senha válida" required="true" autocomplete="false" value="#{controladorCliente.cliente.senhaCliente}" >
+								<f:validateLength minimum="8" maximum="10"></f:validateLength>
+							</h:inputSecret>
+							<label for="icon_senha" data-error="Digite uma senha entre 8 e 10 caracteres." data-success="OK.">Senha</label>
+						</div>
+					</div>
+					<p:growl id="growl" showDetail="false" sticky="false" life="3500" />  
+					<h:commandButton id="botao" type="submit" class="btn modal-trigger red darken-1 col s12" value="Cadastrar" action="#{controladorCliente.cadastrarCliente}"></h:commandButton>
+				</h:form>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col s12">
+					<a class="col s6 center-align" href="#{request.contextPath}/security/Perfil.xhtml">Já sou cadastrado</a>
+					<a class="col s6 center-align" href="#{request.contextPath}/EsqueceuSenha.xhtml">Esqueceu sua senha?</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+
+	<!--  CONTEUDO -->
+	<ui:insert name="conteudo">
+
+	</ui:insert>
+	<!--  /CONTEUDO -->
+
+	<!--  FOOTER -->
+	<footer class="footer white lighten-2 z-depth-2">
+		<div class="container">
+			<div class="row">
+			
+				<div class="col s6 m6">
+					<h6 class="text-lighten-4">
+						<a href="mailto:contato@codigoachei.online?Subject=Contato%20realizado%20pelo%20site" target="_top">contato@codigoachei.online</a>
+					</h6>
+				</div>
+				
+				<div class="col s6 m6">
+					<a class="fb-xfbml-parse-ignore text-lighten-4 right" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.codigoachei.online%2F&amp;src=sdkpreparse" style="margin-top:8px;">Curtir </a>
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.codigoachei.online%2F&amp;src=sdkpreparse"><i class="material-icons prefix text-lighten-4 right" style="margin-top:5px;">thumb_up</i></a>
+				</div>
+				
+			</div>
+		</div>
+	</footer>
+	<!--  /FOOTER -->
+
+	<!--  SCRIPTS-->
+	<script type="text/javascript" src="#{request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="#{request.contextPath}/js/materialize.min.js"></script>
+	<script type="text/javascript" src="#{request.contextPath}/js/init.js"></script>
+	<script>
+		$(document).ready(function() {
+			// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+			$('.modal').modal();
+		});
+	</script>
+	
+	
+	
+	<!--  /SCRIPTS -->
+
+</h:body>
+</html>

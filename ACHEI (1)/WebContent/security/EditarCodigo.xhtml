@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="../Menu.xhtml">
+
+	<ui:define name="conteudo">
+		<br />
+		<br />
+		<br />
+		<div class="container ">
+
+				<div class="row center">
+			
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="VOLTAR" action="#{controladorCliente.voltar()}" styleClass="left btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+				<div class="col m4 s4">
+					<h4 class="center light">Dados do Objeto</h4>
+				</div>
+				
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="Sair" action="#{loginController.sair()}" styleClass="right btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+			</div>
+			
+			<div class="row center">
+				<div class="col s12">
+					<h6 class="light center texto-sobre">
+						Preencha os campos abaixo com informações do seu objeto e uma mensagem que será mostrada para a pessoa que o achar.
+						Fazendo com que a devolução do mesmo seja feita da forma mais fácil possível.
+					</h6>
+					
+					<div class="col m4 s12">
+						<br /> 
+						<img class="responsive-img z-depth-4" src="#{request.contextPath}/img/foto/#{loginController.cliente.caminhoImg}" />
+						<h5 class="light"><h:outputText value="#{loginController.cliente.nomeCliente}"> </h:outputText><h:outputText value=" #{loginController.cliente.sobrenomeCliente}"></h:outputText></h5>
+					</div>
+					<br/>
+					<div class="col m8 s12">
+						<div class="col s12">
+							<br/>
+							<h:form>
+								<div class="col m12 s12">
+								
+									<h:inputHidden value="#{controladorObjeto.objeto.idObjeto}"></h:inputHidden>
+									
+									<div class="input-field">
+										<label for="tipo-objeto">Tipo do Objeto</label>
+										<h:inputText id="tipo-objeto" value="#{controladorObjeto.objeto.tipoObjeto}" styleClass="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="mensagem-objeto">Mensagem do objeto</label>
+										<h:inputText id="mensagem-objeto" value="#{controladorObjeto.objeto.mensagemObjeto}" styleClass="center"></h:inputText>
+									</div>
+									
+									<div class="input-field">
+										<label for="informacao-objeto">Informação adicional</label>
+										<h:inputText id="informacao-objeto" value="#{controladorObjeto.objeto.informacaoObjeto}" styleClass="center"></h:inputText>
+									</div>
+									
+								</div>
+								<h:commandButton action="#{controladorObjeto.alteraObjeto}" value="Salvar" styleClass="btn red darken-1"></h:commandButton>
+							</h:form>
+
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+	</ui:define>
+
+</ui:composition>
+
+</html>

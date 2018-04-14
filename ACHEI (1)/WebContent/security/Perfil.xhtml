@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="../Menu.xhtml">
+
+	<ui:define name="conteudo">
+		<br />
+		<br />
+		<br />
+		<div class="container">
+
+				<div class="row center">
+			
+				<div class="col m4 s4">
+					
+				</div>
+				
+				<div class="col m4 s4">
+					<h4 class="center light">Perfil</h4>
+				</div>
+				
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="Sair" action="#{loginController.sair()}" styleClass="right btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+			</div>
+
+			<div class="row center">
+				<div class="col s12">
+
+					<div class="col m4 s12">
+						<br /> 
+						<img class="responsive-img z-depth-4 materialboxed" src="#{request.contextPath}/img/foto/#{loginController.cliente.caminhoImg}" />
+						
+						<div class="col m12 s12">
+							<h5 class="light"><h:outputText value="#{loginController.cliente.nomeCliente}"> </h:outputText><h:outputText value=" #{loginController.cliente.sobrenomeCliente}"></h:outputText></h5>
+						</div>
+					</div>
+
+					<div class="col m8 s12">
+
+						<div class="col s6 m6">
+							<div class="icone_perfil white z-depth-4">
+								<h2 class="center light-black-text">
+									<i class="material-icons large red-text text-lighten-2">account_circle</i>
+								</h2>
+								<h:form>
+									<h:commandButton type="submit" styleClass="btn_perfil"
+										value="Editar Perfil" action="#{controladorCliente.editaPerfil()}">
+									</h:commandButton>
+								</h:form>
+							</div>
+						</div>
+
+						<div class="col s6 m6">
+							<div class="icone_perfil white z-depth-4">
+								<h2 class="center light-black-text">
+									<i class="material-icons large red-text text-lighten-2">vpn_key</i>
+								</h2>
+								<h:form>
+									<h:commandButton type="submit" styleClass="btn_perfil"
+										value="Ver Códigos" action="#{controladorCodigo.verCodigos()}">
+									</h:commandButton>
+								</h:form>
+							</div>
+						</div>
+
+						<div class="col s6 m6">
+							<div class="icone_perfil white z-depth-4">
+							<h:outputText rendered="#{loginController.quantidadeNotificacoes > 0}" value="#{loginController.quantidadeNotificacoes}" class="new badge red" ></h:outputText> 
+								<h2 class="center light-black-text">
+									<i class="material-icons large red-text text-lighten-2">announcement</i>
+								</h2>
+								<h:form>
+									<h:commandButton type="submit" styleClass="btn_perfil" value="Ver Notificações" action="#{controladorCliente.listarNotificacao}">
+									</h:commandButton>
+								</h:form>
+							</div>
+						</div>
+
+						<div class="col s6 m6">
+							<div class="icone_perfil white z-depth-4">
+								<h2 class="center light-black-text">
+									<i class="material-icons large red-text text-lighten-2">add_circle</i>
+								</h2>
+								<h:form>
+									<h:commandButton type="submit" styleClass="btn_perfil"
+										value="Adquirir Códigos" action="#{controladorCodigo.comprarCodigo}">
+									</h:commandButton>
+								</h:form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+		
+	</ui:define>
+
+</ui:composition>
+
+</html>

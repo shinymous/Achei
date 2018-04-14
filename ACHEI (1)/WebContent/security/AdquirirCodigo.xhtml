@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="../Menu.xhtml">
+
+	<ui:define name="conteudo">
+		<br/>
+		<br/>
+		<br/>
+		<div class="container">
+		
+			<div class="row center">
+			
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="VOLTAR" action="#{controladorCliente.voltar()}" styleClass="left btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+				<div class="col m4 s4">
+					<h4 class="center light">Adquirir Códigos</h4>
+				</div>
+				
+				<div class="col m4 s4">
+					<h:form>
+						<h:commandButton value="Sair" action="#{loginController.sair()}" styleClass="right btn-mini z-depth-1">
+						</h:commandButton>
+					</h:form>
+				</div>
+				
+			</div>
+			
+			<div class="row center">
+				<div class="col s12">
+				
+					<div class="col s6 m3">
+					
+						<h5 class="light">Código</h5>
+						<img src="../img/qr_code.jpg" width="100%" height="150px" />
+						<br/>
+						<br/>
+						<h6 class="light center">Adquira um código simples que será automaticamente vinculado à sua página de
+						 códigos para poder usar em seus objetos.</h6>
+						 
+						 <br/>
+						 <h6 class="red-text">R$:<h:outputText value="#{controladorCodigo.precoCodigoGratis}" />0</h6>
+						 
+						 <h:form>
+							<p:inputMask class="center"  id="qtdade" mask="9?99" x:placeholder="Quantidade" value="#{controladorCodigo.qtCodigoParaComprar}" required="true" requiredMessage="Digite uma quantidade" validatorMessage="Digite uma quantidade" />
+						 	<h:commandButton class="btn red darken-1" value="Adquirir" action="#{controladorCodigo.adquirirCodigo}"></h:commandButton>
+						 </h:form> 
+						
+					</div>
+					
+					<div class="col s6 m3">
+					
+						<h5 class="light">Adesivo</h5>
+						<img src="../img/codigos/adesivo.jpg" width="100%" height="150px" />
+						<br/>
+						<br/>
+						<h6 class="light center">Adquira um adesivo com seu código impresso juntamente com instruções de uso pronto para ser usado
+						em seus objetos.</h6>
+						 
+						  <br/>
+						 <h6 class="red-text">R$:5.00</h6>
+						 
+						 <h:form>
+						 	<p:inputMask class="center" mask="9?9999" x:placeholder="Quantidade" />
+						 	<h:commandButton class="btn red darken-1 disabled" value="Em Breve"></h:commandButton>
+						 </h:form> 
+						
+					</div>
+					<div class="col s6 m3">
+					
+						<h5 class="light">Chaveiro</h5>
+						<img src="../img/codigos/chaveiro.jpg" width="100%" height="150px" />
+						<br/>
+						<br/>
+						<h6 class="light center">Adquira um chaveiro metálico com seu código impresso juntamente com instruções de uso
+						ideal para ser usado em bolsas e mochilas.</h6>
+						 
+						  <br/>
+						 <h6 class="red-text">R$:10.00</h6>
+						 
+						 <h:form>
+						 	<p:inputMask class="center" mask="9?9999" x:placeholder="Quantidade" />
+						 	<h:commandButton class="btn red darken-1 disabled" value="Em Breve"></h:commandButton>
+						 </h:form> 
+						
+					</div>
+					<div class="col s6 m3">
+					
+						<h5 class="light">Cartão</h5>
+						<img src="../img/codigos/cartao.jpg" width="100%" height="150px" />
+						<br/>
+						<br/>
+						<h6 class="light center">Adquira um cartão plástico com seu código impresso juntamente com instruções de uso ideal para
+						ser usado em carteiras e malas de viagem.</h6>
+						 
+						  <br/>
+						 <h6 class="red-text">R$:15.00</h6>
+						 
+						 <h:form>
+						 	<p:inputMask class="center" mask="9?9999" x:placeholder="Quantidade" />
+						 	<h:commandButton class="btn red darken-1 disabled" value="Em Breve"></h:commandButton>
+						 </h:form> 
+						<br/>
+						<br/>
+						<br/>
+					</div>
+					
+					<hr/>
+					<div class="col s12 m12">
+				
+						<h5 class="light">Vale Presente</h5>
+						<br/>
+						<h6 class="light center">Digite o código de seu vale presente e resgate um dos códigos acima</h6>
+						 
+						 
+						 <h:form>
+						 	<p:inputMask class="center" mask="***-***" x:placeholder="Digite aqui" />
+						 	<h:commandButton class="btn red darken-1" value="Resgatar"></h:commandButton>
+						 </h:form> 
+						
+					</div>
+					
+				</div>
+			
+			</div>
+			
+		</div>
+			<br/>
+			<br/>
+			<br/>
+	</ui:define>
+
+</ui:composition>
+
+</html>

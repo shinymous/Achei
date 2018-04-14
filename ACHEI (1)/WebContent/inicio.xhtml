@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="Menu.xhtml">
+
+	<ui:define name="conteudo">
+
+		<div class="container">
+			<br /> <br />
+
+			<h1 class="header center grey-text text-darken-1">Digite o código no <br/>campo abaixo</h1>
+			<h:form id="form" onkeypress="return event.keyCode != 13">
+			<div class="row center">
+     			<div class="input-field col s12">
+         			<h:inputText value="#{controladorCodigo.codigoDigitado}"  validatorMessage="Digite um código válido" id="codigo" x:placeholder="Ex: 0f8409d809sk28fj" requiredMessage="Digite um código válido" required="true" class="validate center" style="text-transform: uppercase">
+         				<f:validateLength minimum="7"></f:validateLength>
+         			</h:inputText>
+         			<label for="codigo" data-error="Digite um código válido." data-success="OK." class="center">Código</label>
+         			<h:inputHidden value="#{controladorCodigo.latitude}" id="latitude"></h:inputHidden>
+         			<h:inputHidden value="#{controladorCodigo.longitude}" id="longitude"></h:inputHidden>
+        		</div>
+			</div>
+			<p id="txt" class="light center"></p>
+			<div class="progresss" id="progress">
+     			<div class="indeterminate"></div>
+ 			</div>
+			<div class="row center">
+				<h:commandButton style="display:none" value="2-Informar" type="submit" action="#{controladorCodigo.localizar}" styleClass="btn-large orange" id="informar">
+				</h:commandButton>
+				<a onclick="getLocation()" class="btn-large red darken-1" id="informar">Informar localização</a>
+			</div>
+			</h:form>
+			
+			<br /> <br />
+			
+		
+
+
+<script>
+var x = document.getElementById("txt");
+var btnInformar = document.getElementById("informar");
+var loader = document.getElementById("progress");
+function getLocation()
+  {
+	x.innerHTML="Por favor aguarde."
+	btnInformar.className += " disabled";
+	loader.className = "progress";
+	document.getElementById("form:latitude").value = 0;
+  	document.getElementById("form:longitude").value = 0;
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+  else{x.innerHTML="Seu browser não suporta Geolocalização.";}
+  }
+function showPosition(position)
+  {
+  	document.getElementById("form:latitude").value = position.coords.latitude;
+  	document.getElementById("form:longitude").value = position.coords.longitude;
+  	
+	setTimeout(function(){
+		btnInformar.className = "btn-large red darken-1";
+		loader.className = "progresss";
+		x.innerHTML = " ";
+		document.getElementById("form:informar").click();
+		}, 2000);
+	
+  }
+function showError(error)
+  {
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+   		x.innerHTML="Por favor aguarde."
+    	setTimeout(function(){
+    		btnInformar.className = "btn-large red darken-1";
+    		loader.className = "progresss";
+    		x.innerHTML = " ";
+    		document.getElementById("form:informar").click();
+    		document.getElementById("form:informar").click();
+    		}, 2000);
+    case error.POSITION_UNAVAILABLE:
+   		 x.innerHTML="Por favor aguarde."
+   		 setTimeout(function(){
+   			btnInformar.className = "btn-large red darken-1";
+   			loader.className = "progresss";
+   			x.innerHTML = " ";
+   			document.getElementById("form:informar").click();
+   			 document.getElementById("form:informar").click();
+   			 }, 3000);
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="A requisição expirou."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="Algum erro desconhecido aconteceu."
+      break;
+    }
+  }
+</script>	
+
+
+			<!--   TUTORIAL   -->
+			<div class="row">
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center red-text text-darken-1">
+							<i class="material-icons">create</i>
+						</h2>
+					<h5 class="center">Digite o código</h5>
+
+						<p class="light center">Digite o código encontrado junto ao objeto e clique em informar localização.</p>
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center red-text text-darken-1">
+							<i class="material-icons">location_on</i>
+						</h2>
+						<h5 class="center">Compartilhe a localização</h5>
+
+						<p class="light center">Permita que sua localização atual seja enviada para o dono do objeto</p>
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center red-text text-darken-1">
+							<i class="material-icons">face</i>
+						</h2>
+						<h5 class="center">Ajude o próximo</h5>
+
+						<p class="light center">Veja as informaçoes do dono, entre em contato e ajude o próximo.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<br/><br/>
+	</ui:define>
+
+</ui:composition>
+
+</html>
